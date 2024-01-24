@@ -12,9 +12,12 @@ const transporter = nodemailer.createTransport({
 });
 
 const currentDate = new Date();
-const formattedDate = `${currentDate.getDate()}/${
+
+const addZero = (num) => (num < 10 ? `0${num}` : num);
+
+const formattedDate = `${addZero(currentDate.getDate())}/${addZero(
   currentDate.getMonth() + 1
-}/${currentDate.getFullYear()}`;
+)}/${currentDate.getFullYear()}`;
 
 const emailContentHTML = `<h1>Email content HTML - ${formattedDate}</h1>`;
 
